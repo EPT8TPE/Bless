@@ -4,6 +4,6 @@ branches:
 - main
 projects:
   Bless:
-  icon: "icon.png"
+    icon: "icon.png"
     path: ""
 ...
