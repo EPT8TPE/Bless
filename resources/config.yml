@@ -1,0 +1,6 @@
+
+# Message sent to players when they bless themselves.
+blessed-self-message: "§e***§lBLESSED§r§e***"
+
+# Message sent to player if they lack permissions to bless themselves.
+no-perms-self-bless: "§cYou do not have permission to bless yourself!"

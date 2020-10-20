@@ -1,0 +1,21 @@
+name: Bless
+version: 1.0.0
+main: TPE\Bless\Bless
+api: 3.0.0
+author: TPE
+
+commands:
+  bless:
+    description: "Bless yourself!"
+    permission: bless.self.command
+    aliases: ["cleanse"]
+  blessother:
+    description: "Bless others"
+    permissions: bless.others.command
+    aliases: ["cleanseother", "bo"]
+    
+permissions:
+  bless.self.command:
+    default: op
+  bless.others.command:
+    default: op
