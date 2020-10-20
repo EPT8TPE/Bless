@@ -4,16 +4,14 @@ declare(strict_types = 1);
 
 namespace TPE\Bless;
 
-use pocketmine\block\Planks;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
-use pocketmine\utils\TextFormat;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
 
 class Bless extends PluginBase {
 
+public $cooldownList = [];
 
     public function onEnable()
     {
@@ -25,10 +23,20 @@ class Bless extends PluginBase {
         if($command->getName() === "bless") {
             if($sender->hasPermission("bless.self.command")) {
                 if($sender instanceof Player) {
-                    foreach($sender->getEffects() as $effect) {
-                        if($effect->getType()->isBad()) {
-                            $sender->removeEffect($effect->getId());
-                        }                        
+                    if(!isset($this->cooldownList[$sender->getName()])) {
+                        $this->cooldownList[$sender->getName()] = time() + $this->getConfig()->get("bless-cooldown-time");
+                        foreach($sender->getEffects() as $effect) {
+                            if($effect->getType()->isBad()) {
+                                $sender->removeEffect($effect->getId());
+                            }                     
+                        }
+                    } else {
+                        if(time() > $this->cooldownList[$sender->getName()]) {
+                            $remaining = $this->cooldownList[$sender->getName()] - time();
+                            $sender->sendMessage(str_replace("%REMAINING%", $remaining, $this->getConfig()->get("cooldown-message")));
+                        } else {
+                            unset($this->cooldownList[$sender->getName()]);
+                        }
                     }
                     $sender->sendMessage($this->getConfig()->get("blessed-self-message"));
                 } else {
