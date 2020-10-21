@@ -1,5 +1,5 @@
 # Bless
-A pocketmine plugin that allows players to bless themselves.
+A pocketmine plugin that allows players to bless themselves (Remove negative effects from themselves such as slowness and weakness)
 
 # How to install
 1. Download the phar from poggit.
@@ -7,7 +7,7 @@ A pocketmine plugin that allows players to bless themselves.
 3. Restart your server.
 
 # Features
-- /bless - Removes all negative effects from the player who runs it.
+- /bless - Removes all negative effects from the player who runs it (Negative effects such as poison, weakness)
 - Configurable cooldown for /bless.
 - Configurable messages
 
