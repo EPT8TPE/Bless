@@ -7,15 +7,9 @@ author: TPE
 commands:
   bless:
     description: "Bless yourself!"
-    permission: bless.self.command
+    permission: bless.command
     aliases: ["cleanse"]
-  blessother:
-    description: "Bless others"
-    permissions: bless.others.command
-    aliases: ["cleanseother", "bo"]
     
 permissions:
-  bless.self.command:
-    default: op
-  bless.others.command:
+  bless.command:
     default: op
