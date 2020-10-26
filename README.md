@@ -12,7 +12,7 @@ A pocketmine plugin that allows players to bless themselves (Remove negative eff
 - Configurable messages
 
 # Permissions
-- bless.self.command - Allows players to use /bless, defaulty given to ops.
+- bless.command - Allows players to use /bless, defaulty given to ops.
 
 # Config
 
