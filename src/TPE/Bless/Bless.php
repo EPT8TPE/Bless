@@ -13,13 +13,11 @@ class Bless extends PluginBase {
 
 public $cooldownList = [];
 
-    public function onEnable()
-    {
+    public function onEnable() {
         $this->saveDefaultConfig();
     }
 
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
-    {
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
         if($command->getName() === "bless") {
             if($sender->hasPermission("bless.command")) {
                 if($sender instanceof Player) {
