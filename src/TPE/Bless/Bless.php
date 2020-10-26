@@ -21,7 +21,7 @@ public $cooldownList = [];
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
         if($command->getName() === "bless") {
-            if($sender->hasPermission("bless.self.command")) {
+            if($sender->hasPermission("bless.command")) {
                 if($sender instanceof Player) {
                     if(!isset($this->cooldownList[$sender->getName()])) {
                         $this->cooldownList[$sender->getName()] = time() + $this->getConfig()->get("bless-cooldown-time");
