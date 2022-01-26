@@ -23,9 +23,9 @@ class Bless extends PluginBase {
                 if($sender instanceof Player) {
                     if(!isset($this->cooldownList[$sender->getName()])) {
                         $this->cooldownList[$sender->getName()] = time() + $this->getConfig()->get("bless-cooldown-time");
-                        foreach($sender->getEffects() as $effect) {
+                        foreach($sender->getEffects()->all() as $effect) {
                             if($effect->getType()->isBad()) {
-                                $sender->removeEffect($effect->getId());
+                                $sender->getEffects()->remove($effect->getType());
                             }                     
                         }
                     } else {
