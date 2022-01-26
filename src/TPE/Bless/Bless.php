@@ -7,13 +7,13 @@ namespace TPE\Bless;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\plugin\PluginBase;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class Bless extends PluginBase {
 
-public $cooldownList = [];
+    public $cooldownList = [];
 
-    public function onEnable() {
+    public function onEnable() : void {
         $this->saveDefaultConfig();
     }
 
